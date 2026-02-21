@@ -1,0 +1,431 @@
+.main {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo em {
+  font-style: normal;
+  color: var(--accent-bright);
+}
+
+.logoIcon {
+  color: var(--accent-bright);
+  font-size: 1.3rem;
+}
+
+.headerMeta {
+  display: flex;
+  gap: 8px;
+}
+
+.pill {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border: 1px solid var(--border-bright);
+  border-radius: 999px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Prompt Section */
+.promptSection {
+  padding: 60px 0 40px;
+}
+
+.headline {
+  font-family: var(--sans);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+  color: var(--text);
+}
+
+.headline span {
+  color: var(--accent-bright);
+}
+
+.formBox {
+  background: var(--surface);
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 20px 24px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  resize: none;
+  outline: none;
+  line-height: 1.6;
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.hint {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-bright);
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Pipeline */
+.pipeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 28px 0;
+  overflow-x: auto;
+}
+
+.pipelineItem {
+  display: flex;
+  align-items: center;
+}
+
+.agentNode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.agentNode.active {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  color: var(--accent-bright);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.agentNode.done {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-dim);
+}
+
+.agentIcon {
+  font-size: 0.85rem;
+}
+
+.pulse {
+  animation: pulse 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.connector {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+
+.connectorDone {
+  background: var(--green);
+}
+
+/* Plan Box */
+.planBox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.planLabel {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.planTasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.planTask {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.planNum {
+  color: var(--accent-bright);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Workspace */
+.workspace {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  padding: 14px 24px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s;
+}
+
+.tab:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.tab:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.tabActive {
+  color: var(--accent-bright) !important;
+  border-bottom-color: var(--accent-bright);
+}
+
+.tabBadge {
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  font-family: var(--mono);
+}
+
+.tabBadgeDone {
+  color: var(--green);
+  font-size: 0.75rem;
+}
+
+/* Log Panel */
+.logPanel {
+  padding: 20px 24px;
+  max-height: 420px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--mono);
+}
+
+.logEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logEntry:last-child {
+  border-bottom: none;
+}
+
+.logAgent {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.logMsg {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.logData {
+  margin-top: 6px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border-bright);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logDataItem {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.feedbackBox {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 6px;
+}
+
+.feedbackLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
+
+.feedbackText {
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.dots::after {
+  content: '...';
+  animation: dotdot 1.2s steps(3, end) infinite;
+}
+
+@keyframes dotdot {
+  0%   { content: '.'; }
+  33%  { content: '..'; }
+  66%  { content: '...'; }
+}
+
+.errorBox {
+  padding: 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+/* Report Panel */
+.reportPanel {
+  padding: 32px 36px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.revisionBanner {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--yellow);
+  margin-bottom: 24px;
+}
+
+.agentName {
+  font-size: 0.75rem;
+}

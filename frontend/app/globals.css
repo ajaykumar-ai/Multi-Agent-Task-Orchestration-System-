@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --border: #1e1e2e;
+  --border-bright: #2e2e4e;
+  --text: #e8e8f0;
+  --text-muted: #6b6b8a;
+  --accent: #7c3aed;
+  --accent-bright: #a855f7;
+  --accent-glow: rgba(124, 58, 237, 0.3);
+  --green: #10b981;
+  --green-dim: rgba(16, 185, 129, 0.15);
+  --yellow: #f59e0b;
+  --red: #ef4444;
+  --mono: 'Space Mono', monospace;
+  --sans: 'Syne', sans-serif;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Markdown styles */
+.markdown h1, .markdown h2, .markdown h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  margin: 1.2em 0 0.5em;
+  color: var(--text);
+}
+.markdown h1 { font-size: 1.5rem; }
+.markdown h2 { font-size: 1.2rem; color: var(--accent-bright); }
+.markdown h3 { font-size: 1rem; }
+.markdown p { line-height: 1.7; margin-bottom: 0.8em; color: var(--text-muted); font-family: var(--mono); font-size: 0.82rem; }
+.markdown ul, .markdown ol { padding-left: 1.5em; margin-bottom: 0.8em; }
+.markdown li { line-height: 1.7; color: var(--text-muted); font-family: var(--mono); font-size: 0.82rem; margin-bottom: 0.3em; }
+.markdown strong { color: var(--text); }
+.markdown code { background: var(--border); padding: 2px 6px; border-radius: 3px; font-family: var(--mono); font-size: 0.8rem; }
+.markdown blockquote { border-left: 2px solid var(--accent); padding-left: 1em; margin: 1em 0; }
